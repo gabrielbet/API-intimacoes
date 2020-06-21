@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/gabrielbet/API-intimacoes/issues"
   },
-  "homepage": "https://github.com/gabrielbet/API-intimacoes#readme"
+  "homepage": "https://github.com/gabrielbet/API-intimacoes#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
