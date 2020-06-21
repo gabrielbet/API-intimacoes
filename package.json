@@ -1,0 +1,19 @@
+{
+  "name": "api-intimacoes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrielbet/API-intimacoes.git"
+  },
+  "author": "Gabriel Barbosa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabrielbet/API-intimacoes/issues"
+  },
+  "homepage": "https://github.com/gabrielbet/API-intimacoes#readme"
+}
