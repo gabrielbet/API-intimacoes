@@ -83,7 +83,7 @@ router.get('/ConsultarIntimacaoProcesso/:nuProcesso', async (req, res) => {
     if (intimacao) {
       res.send(intimacao);
     } else {
-      res.send(`Não foram encontradas intimações para o processo ${nuProcesso}`);
+      res.send(`Não foram encontradas intimações para o processo ${req.params.nuProcesso}`);
       res.end();
     }
     logger.info(`GET /ConsultarIntimacaoProcesso - " ${req.params.nuProcesso}`);
