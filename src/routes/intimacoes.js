@@ -5,7 +5,6 @@ import { promisify } from 'util';
 const router = express.Router();
 const writeFile = promisify(fs.writeFile);
 const readFile = promisify(fs.readFile);
-const data = new Date();
 
 function RetornaDataHoraAtual(){
     var dNow = new Date();
