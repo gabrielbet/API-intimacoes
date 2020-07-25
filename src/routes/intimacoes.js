@@ -64,10 +64,10 @@ router.post('/CriarIntimacao/:cdProcesso', async (req, res) => {
 
 router.get('/TodasIntimacoes', async (_, res) => {
   try {
-    const data = JSON.parse(await readFile(global.fileName, 'utf8'));
-    delete data.nextId;
+    const dados = JSON.parse(await readFile(global.fileName, 'utf8'));
+    delete dados.nextId;
 
-    res.send(data);
+    res.send(dados);
 
     logger.info("GET /TodasContas");
   } catch (err) {
@@ -77,7 +77,7 @@ router.get('/TodasIntimacoes', async (_, res) => {
 
 router.get('/TodasIntimacoesComErro', async (_, res) => {
   try {
-    const data = JSON.parse(await readFile(global.fileName, 'utf8'));
+    const dados = JSON.parse(await readFile(global.fileName, 'utf8'));
     const intimacao = dados.intimacoes.find(intimacao => intimacao.FLPOSSUIERRO === 'S');
     if (intimacao) {
       res.send(intimacao);
@@ -86,7 +86,7 @@ router.get('/TodasIntimacoesComErro', async (_, res) => {
       res.end();
     }
 
-    res.send(data);
+    res.send(dados);
 
     logger.info("GET /TodasIntimacoesComErro");
   } catch (err) {
