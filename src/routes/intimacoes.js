@@ -12,6 +12,42 @@ function RetornaDataHoraAtual(){
     return localdate;
     }
 
+// Criar intimacao por parametros URL
+router.post('/CriarIntimacao', async (req, res) => {
+  try {
+    const dados = JSON.parse(await readFile(global.fileName, 'utf8'));
+
+    let intimacao = {
+        CDATO: dados.nextId++,
+        DTPUBLICACAO: RetornaDataHoraAtual(),
+        DTINICIOCARENCIA: '',
+        DTTERMINOCARENCIA: '',
+        DTINTIMACAO: '',
+        NUDIASPRAZO: '30',
+        DTTERMINODECURSO: '',
+        CDPROCESSO: 'AAAAAAAA0',
+        NUPROCESSO: '1111111-11-1234.8.19.1234',
+        CDOBJETOATO: 'XXXXXXX' + dados.nextId,
+        CDCONVENIO: 1,
+        DECONVENIO: 'Ministério Público',
+        FLPOSSUIERRO: 'N',
+        DTERRO: '',
+        DEMENSAGEMERRO: ''
+    };
+    
+    dados.intimacoes.push(intimacao);
+
+    await writeFile(global.fileName, JSON.stringify(dados));
+
+    res.status(200).send("Intimação criada!");
+    res.end();
+
+    logger.info(`POST /CriarIntimacao - ${JSON.stringify(intimacao)}`);
+  } catch (err) {
+    res.status(400).send({ error: err.message });
+  }
+});
+
 // Criar intimacao por JSON recebido
 router.post('/CriarIntimacaoJson', async (req, res) => {
   try {

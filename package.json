@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/gabrielbet/API-intimacoes#readme",
   "dependencies": {
+    "@lfreneda/eh-dia-util": "^1.2.0",
     "express": "^4.17.1",
     "winston": "^3.3.0"
   },
