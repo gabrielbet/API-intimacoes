@@ -75,6 +75,25 @@ router.get('/TodasIntimacoes', async (_, res) => {
   }
 });
 
+router.get('/TodasIntimacoesComErro', async (_, res) => {
+  try {
+    const data = JSON.parse(await readFile(global.fileName, 'utf8'));
+    const intimacao = dados.intimacoes.find(intimacao => intimacao.FLPOSSUIERRO === 'S');
+    if (intimacao) {
+      res.send(intimacao);
+    } else {
+      res.send(`Não foram encontradas intimações com erros.`);
+      res.end();
+    }
+
+    res.send(data);
+
+    logger.info("GET /TodasIntimacoesComErro");
+  } catch (err) {
+    res.status(400).send({ error: err.message });
+  }
+});
+
 router.get('/ConsultarIntimacaoProcesso/:nuProcesso', async (req, res) => {
   try {
     const dados = JSON.parse(await readFile(global.fileName, 'utf8'));
