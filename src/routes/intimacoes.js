@@ -78,7 +78,7 @@ router.get('/TodasIntimacoes', async (_, res) => {
 router.get('/TodasIntimacoesComErro', async (_, res) => {
   try {
     const dados = JSON.parse(await readFile(global.fileName, 'utf8'));
-    const intimacao = dados.intimacoes.find(intimacao => intimacao.FLPOSSUIERRO === 'S');
+    const intimacao = dados.intimacoes.filter(intimacao => intimacao.FLPOSSUIERRO === 'S');
     if (intimacao) {
       res.send(intimacao);
     } else {
