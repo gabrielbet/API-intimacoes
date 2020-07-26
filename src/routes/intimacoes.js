@@ -7,10 +7,10 @@ const writeFile = promisify(fs.writeFile);
 const readFile = promisify(fs.readFile);
 
 function RetornaDataHoraAtual(){
-    var dNow = new Date();
-    var localdate = dNow.getDate() + '/' + (dNow.getMonth()+1) + '/' + dNow.getFullYear() + ' ' + dNow.getHours() + ':' + dNow.getMinutes() + ':' + dNow.getSeconds();
-    return localdate;
-    }
+  var dNow = new Date();
+  var localdate = dNow.getDate() + '/' + (dNow.getMonth()+1) + '/' + dNow.getFullYear() + ' ' + dNow.getHours() + ':' + dNow.getMinutes() + ':' + dNow.getSeconds();
+  return localdate;
+}
 
 // Criar intimacao por parametros URL
 router.post('/CriarIntimacao', async (req, res) => {
