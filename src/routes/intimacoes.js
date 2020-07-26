@@ -133,7 +133,7 @@ router.get('/TodasIntimacoesComErro', async (_, res) => {
 router.get('/ConsultarIntimacaoProcesso/:nuProcesso', async (req, res) => {
   try {
     const dados = JSON.parse(await readFile(global.fileName, 'utf8'));
-    const intimacao = dados.intimacoes.find(intimacao => intimacao.NUPROCESSO === req.params.nuProcesso);
+    const intimacao = dados.intimacoes.filter(intimacao => intimacao.NUPROCESSO === req.params.nuProcesso);
     if (intimacao) {
       res.send(intimacao);
     } else {
